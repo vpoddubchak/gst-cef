@@ -11,7 +11,7 @@
 ```
 mkdir build && cd build
 cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release .. -DUSE_SANDBOX=0
-make
+sudo make
 ```
 
 # running it on linux
