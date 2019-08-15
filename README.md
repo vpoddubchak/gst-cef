@@ -25,12 +25,8 @@ The .exe file that launches the gstreamer pipeline must be in the same directory
 cp `which gst-launch-1.0` Release/
 ```
 
-```
-GST_PLUGIN_PATH=$PWD/Release:$GST_PLUGIN_PATH Release/gst-launch-1.0 -v gstcef url="https://google.com" width=1280 height=720 ! queue ! videoconvert ! autovideosink
-```
-
 ### Testing
 
 ```
-gst-launch-1.0 cef url="https://google.com" width=1280 height=720 ! autovideosink
+GST_PLUGIN_PATH=$PWD/Release:$GST_PLUGIN_PATH Release/gst-launch-1.0 -v gstcef url="https://google.com" width=1280 height=720 ! queue ! videoconvert ! autovideosink
 ```
