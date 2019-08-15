@@ -10,6 +10,8 @@
 
 Update cmake for ubuntu 16:
 ```
+sudo apt remove --purge --auto-remove cmake
+
 version=3.15
 build=2
 mkdir ~/temp
