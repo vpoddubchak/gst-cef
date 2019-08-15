@@ -6,7 +6,8 @@
 * libgstreamer1.0-dev
 * libgstreamer-plugins-base1.0-dev
 * build-essential
-* CMake >= 3.8 
+* CMake >= 3.8
+
 Update cmake for ubuntu 16:
 ```
 version=3.15
