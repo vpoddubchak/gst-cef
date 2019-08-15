@@ -8,8 +8,11 @@
 * build-essential
 * CMake >= 3.8
 
-```cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release .. -DUSE_SANDBOX=0```
-```make```
+```
+mkdir build && cd build
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release .. -DUSE_SANDBOX=0
+make
+```
 
 # running it on linux
 ```
