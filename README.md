@@ -6,7 +6,11 @@
 * libgstreamer1.0-dev
 * libgstreamer-plugins-base1.0-dev
 * build-essential
-* CMake >= 3.8
+* CMake >= 3.8 ```
+dsfs
+```
+
+
 
 ```
 mkdir build && cd build
