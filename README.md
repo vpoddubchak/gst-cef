@@ -2,20 +2,14 @@
 
 # CEF Plugin
 
-### Requirements Windows
-* MSVC command line tools
-* GStreamer 1.0
-* GStreamer 1.0 development tools
-* CMake
-
 ### Requirements Linux
-* GStreamer 1.0
-* GStreamer 1.0 development tools
-* CMake >= 3.8
+* libgstreamer1.0-dev
+* libgstreamer-plugins-base1.0-dev
 * build-essential
-* if this is a headless machine - just install chromium to pull in all the needed runtime dependencies
+* CMake >= 3.8
 
-cmake -G "Unix Makefiles" .. -DUSE_SANDBOX=0
+```cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release .. -DUSE_SANDBOX=0```
+```make```
 
 # running it on linux
 ```
@@ -28,64 +22,6 @@ The .exe file that launches the gstreamer pipeline must be in the same directory
 
 ### Testing
 
-
 ```
 gst-launch-1.0 cef url="https://google.com" width=1280 height=720 ! autovideosink
-```
-
-
-```
-
-    +-----------------------------------------------------------------------------------------------------+
-    |                                                                                                     |
-    |  GStreamer  (C)                                                                                     |
-    |                                                                                                     |
-    |                                                                                                     |
-    |        +----------------+                                       +--------------+                    |
-    |        |                |  1                                 n  |              |                    |
-    |        |  GstCefClass   |  <---------------------------------+  |   GstCef     |                    |
-    |        |                |                                       |              |                    |
-    |        +----------------+                                       +--------------+                    |
-    |                                                                                                     |
-    |                                                                        +   + 1                      |
-    |                                                                        |   |                        |
-    |                        +-----------------------------------------------+                            |
-    |                        |                                                   |                        |
-    +-----------------------------------------------------------------------------------------------------+
-                             |                                                   |
-                +--------------------------+
-                |   gst cef interface      |                                     |
-                +--------------------------+
-                             |                                                   |
-    +--------------------------------------------------------------------------------------------------------------------------------------+
-    |                        |                                                   |                                                         |
-    |  Cef (C++)             |                                                                                                             |
-    |                        |                                                   |                                                         |
-    |                        v                                                   v 1                                                       |
-    |                                                                                                                                      |
-    |        +-----------------------------------+                    +---------------------------+            +---------------+           |
-    |        |                                   |                    |                           | 1        1 |               |           |
-    |        |  Browser -> App? BrowserProcess   |                    |  BrowserWindow            | +--------> |  CefBrowser   |           |
-    |        |                                   |                    |                           |            |               |           |
-    |        |                                   | 1                n |                           |            +---------------+           |
-    |        |  * CefApp                         |                    |  * CefClient              |                                        |
-    |        |  * CefBrowserProcessHandler       | +----------------> |  * CefDisplayHandler      |                                        |
-    |        |  * CefRenderProcessHandler        |                    |  * CefLifeSpanHandler     |                                        |
-    |        |                                   |                    |  * CefLoadHandler         |                                        |
-    |        |                                   |                    |  * CefRenderHandler       |                                        |
-    |        |  CloseBrowser()                   |                    |                           |                                        |
-    |        |  CreateCefWindow()                |                    |  OnPaint()                |                                        |
-    |        |  Refresh()                        |                    |  Refresh()                |                                        |
-    |        |  Open()                           |                    |                           |                                        |
-    |        |  OnBeforeCommandLineProcessing()  |                    |                           |                                        |
-    |        |                                   |                    |                           |                                        |
-    |        |                                   |                    |                           |                                        |
-    |        |                                   |                    |                           |                                        |
-    |        +-----------------------------------+                    +---------------------------+                                        |
-    |                                                                                                                                      |
-    |                                                                                                                                      |
-    |                                                                                                                                      |
-    +--------------------------------------------------------------------------------------------------------------------------------------+
-
-
 ```
