@@ -92,7 +92,7 @@ void Browser::CreateCefWindow(CefRefPtr<CefWindowManager> client) {
   CefBrowserSettings browser_settings;
   browser_settings.windowless_frame_rate = 30;
 
-  CefRefPtr<CefBrowser> browser = CefBrowserHost::CreateBrowserSync(window_info, client, client->GetUrl(), browser_settings, NULL);
+  CefRefPtr<CefBrowser> browser = CefBrowserHost::CreateBrowserSync(window_info, client, client->GetUrl(), browser_settings, NULL, NULL);
   browser->GetHost()->WasResized();
 }
 

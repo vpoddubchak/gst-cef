@@ -37,11 +37,11 @@ gst_cef_(gst_cef) {
 
 CefWindowManager::~CefWindowManager() {}
 
-bool CefWindowManager::GetViewRect(CefRefPtr<CefBrowser> browser, CefRect &rect)
+void CefWindowManager::GetViewRect(CefRefPtr<CefBrowser> browser, CefRect &rect)
 {
   //GST_LOG("GetViewRect: %uX%u", width_, height_);
   rect.Set(0, 0, width_, height_);
-  return true;
+  return;
 }
 
 void CefWindowManager::OnPaint(CefRefPtr<CefBrowser> browser, PaintElementType paintType, const RectList &rects,

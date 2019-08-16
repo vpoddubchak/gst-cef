@@ -15,7 +15,7 @@
 
 void RegisterFileSchemeHandlerFactory(CefRawPtr<CefSchemeRegistrar> registrar)
 {
-  registrar->AddCustomScheme(kFileSchemeProtocol, true, false, false, true, true, false);
+  registrar->AddCustomScheme(kFileSchemeProtocol, CEF_SCHEME_OPTION_STANDARD | CEF_SCHEME_OPTION_SECURE | CEF_SCHEME_OPTION_CORS_ENABLED);
 }
 
 FileSchemeHandler::FileSchemeHandler(CefString local_filepath)
