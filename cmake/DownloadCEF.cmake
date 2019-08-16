@@ -31,6 +31,7 @@ function(DownloadCEF platform version download_dir)
 
       # Download the binary distribution and verify the hash.
       # message(STATUS "Downloading ${CEF_DOWNLOAD_PATH}...")
+      STRING(REPLACE "+" "%2B" CEF_DOWNLOAD_URL ${CEF_DOWNLOAD_URL})
       file(
         DOWNLOAD "${CEF_DOWNLOAD_URL}" "${CEF_DOWNLOAD_PATH}"
       #   EXPECTED_HASH SHA1=${CEF_SHA1}

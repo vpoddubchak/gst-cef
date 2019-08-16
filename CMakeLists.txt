@@ -6,7 +6,7 @@ set(CMAKE_CONFIGURATION_TYPES Release Debug)
 
 project(gst-cef)
 
-set(CEF_VERSION "3.3538.1849.g458cc98")
+set(CEF_VERSION "76.1.9+g2cf916e+chromium-76.0.3809.87")
 
 # Determine the platform.
 if("${CMAKE_SYSTEM_NAME}" STREQUAL "Darwin")
